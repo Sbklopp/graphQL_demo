@@ -10,7 +10,8 @@ run server with **npm run devstart**
 
 
 ## Query a single author:
-*replace x with id you want to query* <br>
+- *replace x with id you want to query* <br>
+
 { 
   author(id: x){
     id
@@ -32,7 +33,8 @@ run server with **npm run devstart**
 
 
 ## Query a single book:
-*replace x with id you want to query* <br>
+- *replace x with id you want to query* <br>
+
 {
   book(id: x) {
     id
@@ -55,7 +57,7 @@ run server with **npm run devstart**
 
 
 ## Query a book by author_id:
-*replace x with id you want to query* <br>
+- *replace x with id you want to query* <br>
 
 {
   books(author_id: x)
@@ -69,10 +71,10 @@ run server with **npm run devstart**
 
 
 ## Query an author by book id:
-*replace x with id you want to query* <br>
+- *replace x with id you want to query* <br>
 
 {
-    book(id:1) {
+    book(id: x) {
       id
     	name
     	author{
