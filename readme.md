@@ -4,10 +4,9 @@
 ## Installation and Running Server
 - use **npm install** to install depencies. <br>
 - Install nodemon as a dev depency using **npm i --save-dev nodemon** <br>
-- Install dotenv with **npm install dotenv --save** and create an .env file to add your database credentials  <br>
+- Install dotenv with **npm install dotenv --save** and create an .env file to securely add your database credentials  <br>
 - run server with **npm run devstart**
 - create queries at **localhost:5000/graphql**
-
 <br>
 
 ## Graphiql Queries
