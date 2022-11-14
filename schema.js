@@ -101,7 +101,6 @@ const RootQuery = new GraphQLObjectType({
             type: AuthorType,
             args: {
                  id: { type: GraphQLID},
-                 book_id: { type: GraphQLID}
             },
             resolve: async (parentVal, args) => {
                 // Place your MySQL queries...
@@ -124,8 +123,8 @@ const RootQuery = new GraphQLObjectType({
                 // Place your MySQL queries...
                 if (args.book_id) {
                     const [rows, fields] = await connection.promise().query(
-                        `SELECT * FROM authors where book_id = ${args.book_id}`
-                        // `SELECT * FROM authors where book_id = ${args.id}` //maybe this one?
+                        // `SELECT * FROM authors where book_id = ${args.book_id}`
+                        `SELECT * FROM authors where book_id = ${args.id}` //maybe this one?
                     )
                     return rows
                 }
