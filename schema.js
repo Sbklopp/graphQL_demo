@@ -44,13 +44,15 @@ const AuthorType = new GraphQLObjectType({
         age: { type: GraphQLInt },
         location: { type: GraphQLString },
         book: {
-            type: BookType,
+            type: new GraphQLList(BookType),
             resolve: async (parent, args) => {
                 // Place your MySQL queries...
                 const [rows, fields] = await connection.promise().query(
-                    `SELECT * from books where id = ${parent.id}`
+                    // `SELECT * from books where author_id = ${parent.id}`
+                    `Select * from books where author_id = ${parent.id}`
                 )
-                return rows[0]
+                console.log(rows)
+                return rows
 
             },
         },
@@ -164,6 +166,7 @@ const RootQuery = new GraphQLObjectType({
                 if (args.author_id) {
                    const [rows, fields] = await connection.promise().query(
                        `SELECT * FROM books where author_id = ${args.author_id}`
+                    //    `SELECT * FROM books where author_id = ${args.id}`
                    )
                    return rows
                 }
@@ -176,7 +179,7 @@ const RootQuery = new GraphQLObjectType({
 
 
 
-    }) //ROOT QUERY FIELDS END HERE
+    }) //ROOT QUERY FIELDS END HERE 
 }); // ROOT QUERY ENDS HERE *** DO NOT SEPERATE THESE TWO LINES ^^
 
 module.exports = new graphql.GraphQLSchema({
